@@ -31,6 +31,42 @@ unsigned long tamano_cola(cola *mi_cola) {							// else return 1
 }
 /*
 int *encolar(cola *micola,void *elemento){  
+    nodo_cola *nuevo_nodo=malloc(sizeof(nodo_cola));
+    nuevo_nodo->elemento=elemento;
+    nuevo_nodo->siguiente=NULL;
+    if(nuevo_nodo==NULL) return -1;
+    if(tamano_cola(micola)==0) nuevo_nodo->anterior=NULL;
+    if(micola->fin != NULL){
+        micola->fin->siguiente= nuevo_nodo;
+
+       }
+    return -1 ;
+    
+
+}*/
+int *encolar(cola *micola, int elemento){
+    nodo_cola *newnode = malloc(sizeof(nodo_cola));
+    newnode->elemento=(void)elemento;
+    newnode->siguiente=NULL;
+
+    if(newnode==NULL){ return -1;}
+
+    if(micola->fin != NULL){
+
+        micola->fin->siguiente= newnode;
+    }
+    micola->fin=newnode;
+    if(micola->inicio==NULL){
+        micola->inicio=newnode;
+
+
+}
+}
+  
+
+
+/*
+int *encolar(cola *micola,void *elemento){  
 
     nodo_cola *nuevo_nodo =malloc(sizeof(nodo_cola));
     nuevo_nodo->elemento=elemento;
@@ -61,6 +97,6 @@ int main(){
 
 
 
-
+return 0;
 
 }
