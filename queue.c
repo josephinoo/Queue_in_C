@@ -21,7 +21,7 @@ void init_queue(queue *q){
     q->tail=NULL;
 }
 
-bool *enqueue(queue *q, int value){
+bool enqueue(queue *q, int value){
     node *newnode = malloc(sizeof(node));
     newnode->value=value;
     newnode->next=NULL;
