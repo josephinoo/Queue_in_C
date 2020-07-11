@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 
-#define QUEUE_EMPTY INT_MIN
 
 typedef struct colaTDA{
  unsigned long tamano;
@@ -19,19 +18,21 @@ typedef struct nodo_colaTDA{
 } nodo_cola;
 
 cola *crear_cola(){
-    cola *q;
-    q->inicio= NULL;
-    q->fin=NULL;
+    cola *q=malloc(sizeof(cola));
+    q->inicio=q->fin=NULL;
     q->tamano=0;
     return q ;
    
 }
 
-int *encolar(cola *micola,void *elemento){  
-    
 
-    
-    nodo_cola *nuevo_nodo = malloc(sizeof(nodo_cola));
+unsigned long tamano_cola(cola *mi_cola) {							// else return 1
+	return mi_cola->tamano;
+}
+/*
+int *encolar(cola *micola,void *elemento){  
+
+    nodo_cola *nuevo_nodo =malloc(sizeof(nodo_cola));
     nuevo_nodo->elemento=elemento;
     nuevo_nodo->siguiente=NULL;
 
@@ -48,9 +49,17 @@ int *encolar(cola *micola,void *elemento){
 }
     return 0;
 
-}
+}*/
 
 int main(){
+    cola *q1;
+    q1=crear_cola();
+    unsigned long  tamano=tamano_cola(q1);
+    printf("tamaño %ld\n",tamano);
+
+
+
+
 
 
 
