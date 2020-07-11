@@ -54,44 +54,37 @@ micola->tamano++;
 return 0;
 }
 void *decolar(cola *mi_cola){
+    mi_cola->tamano--;
+    nodo_cola *tmp = mi_cola->inicio;
+    mi_cola->inicio->siguiente->anterior=NULL;
+    void *result = tmp->elemento;
+    mi_cola->inicio=mi_cola->inicio->siguiente;
+    if(mi_cola->inicio==NULL){
+        mi_cola->fin=NULL;
+    }
     
+    free(tmp);
+    
+    return result;
 
 
 }
   
 
 
-/*
-int *encolar(cola *micola,void *elemento){  
-
-    nodo_cola *nuevo_nodo =malloc(sizeof(nodo_cola));
-    nuevo_nodo->elemento=elemento;
-    nuevo_nodo->siguiente=NULL;
-
-    if(nuevo_nodo==NULL) return -1;
-    if(micola->fin != NULL){
-
-        micola->fin->siguiente= nuevo_nodo;
-    }
-    micola->fin=nuevo_nodo;
-    if(micola->inicio==NULL){
-        micola->inicio=nuevo_nodo;
-
-
-}
-    return 0;
-
-}*/
 
 int main(){
     cola *q1;
-    int p=4;
+    int p=5;
     int *ptr=&p;
     q1=crear_cola();
     encolar(q1,ptr);
     encolar(q1,ptr);
     encolar(q1,ptr);
-    encolar(q1,ptr);
+   
+    decolar(q1);
+
+
     unsigned long  tamano=tamano_cola(q1);
     printf("tamaño %ld\n",tamano);
 
