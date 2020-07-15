@@ -53,6 +53,7 @@ micola->tamano++;
 
 return 0;
 }
+
 void *decolar(cola *mi_cola){
     mi_cola->tamano--;
     nodo_cola *tmp = mi_cola->inicio;
@@ -69,6 +70,15 @@ void *decolar(cola *mi_cola){
 
 
 }
+
+
+unsigned long posicion_cola(cola *mi_cola, void *elemento) {
+
+
+
+}
+
+int destruir_cola() {}
   
 
 
