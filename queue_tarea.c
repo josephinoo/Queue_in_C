@@ -88,9 +88,13 @@ unsigned long posicion_cola(cola *mi_cola, void *elemento) {
 
 }
 
-int destruir_cola() {
-
-    return 0;
+int destruir_cola(cola *mi_cola) {
+	if(mi_cola->tamano==0){
+		free(mi_cola);
+		return 0;
+	}else{
+		return -1;
+	}
 }
   
 
