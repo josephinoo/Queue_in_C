@@ -50,19 +50,6 @@ int encolar(cola *micola, void *elemento){
     micola->fin=newnode;
     micola->tamano++;
     
-    /*
-    else{
-    if(micola->fin != NULL){
-        
-        micola->fin->siguiente=newnode;
-
-    }
-    newnode->anterior=micola->fin;  
-  
-        
-
-}
-*/
 
     return 0;
 }
@@ -76,7 +63,6 @@ void *decolar(cola *mi_cola){
     value=mi_cola->inicio->elemento;
     tmp=mi_cola->inicio;
     mi_cola->inicio=mi_cola->inicio->siguiente;
-    //mi_cola->inicio->anterior=NULL;
      mi_cola->tamano--;
     free(tmp);
     return value;
@@ -116,7 +102,6 @@ unsigned long posicion_cola(cola *mi_cola, void *elemento) {
 int destruir_cola(cola *mi_cola) {
 	if(mi_cola->tamano==0){
 		free(mi_cola);
-        printf("Se elimino");
 		return 0;
 	}else{
 		return -1;
@@ -126,72 +111,58 @@ int destruir_cola(cola *mi_cola) {
 
 
 
-int main(){
-	int val=0;
-	char dato= 0;
+int main() {
+    int TAM=1000;
+    char entrada[TAM];
+ 
+ int c=-1;
+ cola *miCola=crear_cola();
+ while(c!=0){
+ 
+  memset(entrada, 0, TAM);
+  fgets(entrada, TAM, stdin);
+  
+  if(strcmp(entrada, "x\n") !=0){
 
-    cola* colaTEST=crear_cola();
-	while(1){
-		
-		scanf("%c",&dato);
-        char * valor=&dato;
-		
-		if(strcmp(valor,"x\n")==0){
-			break;
-		}
-		else{
-			int numero= atoi(valor);
-            int *ptr=&numero;
-            //printf("Testing %ld\n",ptr);
-			
-			encolar(colaTEST,ptr);
-			val++;
-		}
-	}
+   unsigned long numero=atoi(entrada);
+   encolar(miCola,(void *)numero);
 
-			
-			
-	
-    printf("Elemento a buscar: ");
-    int buscar;
-    scanf("%d",&buscar);
-    int * buscador =&buscar;
-    unsigned long position =posicion_cola(colaTEST,buscador);
-    printf("El elemento está en la posición %ld de la cola \n",position);
-    for(int i=0;i<val;i++){
-       decolar(colaTEST);
-    }
-    destruir_cola(colaTEST);
-
-    /*
-
-    cola* colaTEST=crear_cola();
-    int pa =1;
-     int pb =2;
-      int pc =3;
-       int pd =4;
-        int pe =5;
-    int* a=&pa;
-    int* b=&pb;
-    int* c=&pc;
-    int* d=&pd;
-    int* e=&pe;
-    encolar(colaTEST,a);
-        encolar(colaTEST,b);
-            encolar(colaTEST,c);
-                encolar(colaTEST,d);
-                    encolar(colaTEST,e);
+   
+  }else{
 
 
-    unsigned long position =posicion_cola(colaTEST,e);
-    printf("El elemento está en la posición %ld de la cola \n",position);
-*/
 
+
+   unsigned long tamanoCola=tamano_cola(miCola);
+   printf("el tamano es: %ld\n", tamanoCola);
+  
+   
+   
+   unsigned long posicion;
+   printf("Elemento a buscar: ");
+      scanf("%ld", &posicion);
+
+   unsigned long posicionElemento=posicion_cola(miCola, (void *)posicion);
+   printf("El elemento esta en la posicion %ld de la cola\n", posicionElemento );
+
+
+   for(int i=0; i<tamanoCola; i++){
+
+
+    decolar(miCola);
+
+   }
+   int destruccion=destruir_cola(miCola);
+   if(destruccion==0){
+    printf("elementos decolados y cola destruida\n");
     
-    
+   }
+   c=0;
 
 
 
-return 0;
-
+  }
+   
+}
+    return 0;
 }
