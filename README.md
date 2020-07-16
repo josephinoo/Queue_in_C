@@ -1,8 +1,8 @@
-# DEBER 3  -QUEUE EN C
+QUEUE EN C
 ## Integrantes 📚
 
 - Joseph  Avila Alvarez        
-- Ramiro Serrano Espinoza
+- Raul Villao Rodríguez
 ## Queue
 
 Una cola es una colección de objetos que son insertados y removidos de acuerdo al principio primero en entrar, primero en salir, FIFO (first-in first-out). Esto es, los elementos pueden ser insertados en cualquier momento, pero solamente el elemento que ha estado en la cola más tiempo puede ser removido en cualquier momento.
