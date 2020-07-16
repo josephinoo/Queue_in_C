@@ -73,12 +73,25 @@ void *decolar(cola *mi_cola){
 
 
 unsigned long posicion_cola(cola *mi_cola, void *elemento) {
-
+        nodo_cola *inicio = mi_cola->inicio;
+        int i =0;
+        while(mi_cola->tamano>0){
+            if(inicio->elemento==elemento){
+                return i;
+            }else{
+                i++;
+                 inicio=inicio->siguiente;
+            } 
+        }
+        return -1;
 
 
 }
 
-int destruir_cola() {}
+int destruir_cola() {
+
+    return 0;
+}
   
 
 
