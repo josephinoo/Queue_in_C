@@ -1,4 +1,7 @@
 # QUEUE EN C
+![contributors](https://img.shields.io/github/contributors/eljosephavila123/Queue_in_C) ![last-commit](https://img.shields.io/github/last-commit/eljosephavila123/Queue_in_C) ![followers](https://img.shields.io/github/followers/eljosephavila123?style=social ) ![forks](https://img.shields.io/github/forks/eljosephavila123/Queue_in_C?style=social)
+![size](https://img.shields.io/github/repo-size/eljosephavila123/Queue_in_C)
+![twitter](https://img.shields.io/twitter/follow/soyjosephavila?style=social)
 ## Integrantes 📚
 
 - Joseph  Avila Alvarez        
